@@ -20,6 +20,7 @@ class Students extends Model
         'email',
         'alamat',
         'jurusan',
+        'pas_foto',
         'jalur_masuk',
         'created_at',
         'updated_at',

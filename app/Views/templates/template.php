@@ -39,6 +39,13 @@
             <li class="nav-item">
               <a href="<?= base_url() ?>/about" class="nav-link <?= ($title == "About") ? 'active' : '' ?>">About</a>
             </li>
+            <li class="nav-item">
+              <a href="<?= base_url() ?>/pendaftaran" class="nav-link <?= ($title == "Pendaftaran") ? 'active' : '' ?>">Daftar Ulang</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="<?= base_url() ?>/students" class="nav-link <?= ($title == "Students") ? 'active' : '' ?>">List Mahasiswa</a>
+            </li>
           </ul>
 
           <ul class="navbar-nav ms-auto">
@@ -46,6 +53,7 @@
               <a href="<?= base_url() ?>" class="nav-link">Login <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
             </li>
           </ul>
+
         </div>
         <!-- Right navbar links -->
       </div>

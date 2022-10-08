@@ -38,9 +38,16 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/about','Home::about');
 $routes->get('/admin','AdminController::index');
+$routes->get('/pendaftaran','Home::pendaftaran');
 $routes->get('/admin/mahasiswa','AdminController::students');
+$routes->post('/pendafaran/create','StudentsController::store');
+$routes->get('/students','StudentsController::index');
+
+
 $routes->post('/admin/mahasiswa/delete','AdminController::delete');
 $routes->post('/admin/mahasiswa/view','AdminController::view');
+$routes->post('/admin/mahasiswa/edit','AdminController::edit');
+
 
 
 /*

@@ -5,8 +5,11 @@
         <img class="profile-user-img img-fluid img-circle" src="/adminLTE/dist/img/user4-128x128.jpg" alt="User profile picture">
     </div>
     <h3 class="profile-username text-center"><?= $student['name'] ?></h3>
-    <p class="text-muted text-center"><?= $student['NPM'] ?></p>
+    <p class="text-muted text-center"><?= $student['email'] ?></p>
     <ul class="list-group list-group-unbordered mb-3">
+        <li class="list-group-item">
+            <b>NPM</b> <a class="float-right"><?= $student['NPM']; ?></a>
+        </li>
         <li class="list-group-item">
             <b>Jurusan</b> <a class="float-right"><?= $student['jurusan']; ?></a>
         </li>

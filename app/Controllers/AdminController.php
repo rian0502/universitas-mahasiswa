@@ -47,4 +47,12 @@ class AdminController extends BaseController
         ];
         return view('onlyAdmin/student',$data);
     }
+    public function edit(){
+        $students = new Students();
+        $data = [
+            'sidebar' => 'Students',
+            'student' => $students->where('npm', $this->request->getPost('npm'))->first(),
+        ];
+        return view('onlyAdmin/edit',$data);
+    }
 }
