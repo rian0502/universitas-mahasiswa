@@ -9,8 +9,15 @@ class AdminController extends BaseController
 {
     public function index()
     {
+
+        $students = new Students();
         $data = [
-            'sidebar' => 'Dashboard'
+            'sidebar' => 'Dashboard',
+            'jumlah' => $students->countAllResults(),
+            'snmptn' => $students->where('jalur_masuk', 'SNMPTN')->countAllResults(),
+            'sbmptn' => $students->where('jalur_masuk', 'SBMPTN')->countAllResults(),
+            'mandiri' => $students->where('jalur_masuk', 'Mandiri')->countAllResults(),
+
         ];
         return view('onlyAdmin/index',$data);
     }
@@ -25,6 +32,19 @@ class AdminController extends BaseController
     }
     public function delete(){
         $students = new Students();
+        if($students->where('npm', $this->request->getPost('npm'))->delete()){
+            return redirect()->to('/admin/mahasiswa')->with('success','Data berhasil dihapus');
+        }else{
+            return redirect()->to('/admin/mahasiswa')->with('error','Data gagal dihapus');
+        }
+    }
 
+    public function view(){
+        $students = new Students();
+        $data = [
+            'sidebar' => 'Students',
+            'student' => $students->where('npm', $this->request->getPost('npm'))->first(),
+        ];
+        return view('onlyAdmin/student',$data);
     }
 }

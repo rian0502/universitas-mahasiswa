@@ -40,6 +40,9 @@ $routes->get('/about','Home::about');
 $routes->get('/admin','AdminController::index');
 $routes->get('/admin/mahasiswa','AdminController::students');
 $routes->post('/admin/mahasiswa/delete','AdminController::delete');
+$routes->post('/admin/mahasiswa/view','AdminController::view');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

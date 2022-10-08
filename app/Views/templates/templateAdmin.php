@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -36,7 +36,7 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="">Home</a>
+                    <a href="<?= base_url(); ?>">Home</a>
                 </li>
             </ul>
         </nav>
@@ -45,7 +45,7 @@
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="/adminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">Admin Kampus</span>
             </a>
 
             <!-- Sidebar -->
@@ -149,7 +149,7 @@
             e.preventDefault();
             Swal.fire({
                 title: 'Yakin menghapus data ?',
-                text:'Data yang di hapus tidak akan bisa di kembalikan !',
+                text: 'Data yang di hapus tidak akan bisa di kembalikan !',
                 confirmButtonText: 'Hapus',
                 icon: 'warning',
                 showCancelButton: true,
