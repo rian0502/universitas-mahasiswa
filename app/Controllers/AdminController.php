@@ -63,7 +63,6 @@ class AdminController extends BaseController
 
     public function update()
     {
-
         $students = new Students();
 
         $data = [
