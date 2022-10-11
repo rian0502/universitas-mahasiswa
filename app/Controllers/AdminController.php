@@ -19,40 +19,65 @@ class AdminController extends BaseController
             'mandiri' => $students->where('jalur_masuk', 'Mandiri')->countAllResults(),
 
         ];
-        return view('onlyAdmin/index',$data);
+        return view('onlyAdmin/index', $data);
     }
 
-    public function students(){
+    public function students()
+    {
         $students = new Students();
         $data = [
             'sidebar' => 'Students',
             'students' => $students->findAll(),
         ];
-        return view('onlyAdmin/students',$data);
+        return view('onlyAdmin/students', $data);
     }
-    public function delete(){
+    public function delete()
+    {
         $students = new Students();
-        if($students->where('npm', $this->request->getPost('npm'))->delete()){
-            return redirect()->to('/admin/mahasiswa')->with('success','Data berhasil dihapus');
-        }else{
-            return redirect()->to('/admin/mahasiswa')->with('error','Data gagal dihapus');
+        if ($students->where('npm', $this->request->getPost('npm'))->delete()) {
+            return redirect()->to('/admin/mahasiswa')->with('success', 'Data berhasil dihapus');
+        } else {
+            return redirect()->to('/admin/mahasiswa')->with('error', 'Data gagal dihapus');
         }
     }
 
-    public function view(){
+    public function view()
+    {
         $students = new Students();
         $data = [
             'sidebar' => 'Students',
             'student' => $students->where('npm', $this->request->getPost('npm'))->first(),
         ];
-        return view('onlyAdmin/student',$data);
+        return view('onlyAdmin/student', $data);
     }
-    public function edit(){
+    public function edit($npm)
+    {
         $students = new Students();
+
         $data = [
             'sidebar' => 'Students',
-            'student' => $students->where('npm', $this->request->getPost('npm'))->first(),
+            'student' => $students->where('npm', $npm)->first(),
         ];
-        return view('onlyAdmin/edit',$data);
+        return view('onlyAdmin/edit', $data);
+    }
+
+    public function update()
+    {
+
+        $students = new Students();
+
+        $data = [
+            'name' => $this->request->getVar('name'),
+            'email' => $this->request->getVar('email'),
+            'NPM' => $this->request->getVar('npm'),
+            'alamat' => $this->request->getVar('alamat'),
+            'jurusan' => $this->request->getVar('jurusan'),
+            'jalur_masuk' => $this->request->getVar('jalur_masuk'),
+            'pas_foto' => $this->request->getFile('pas_foto'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+
+
+        
     }
 }

@@ -2,6 +2,7 @@
 <?= $this->section('content'); ?>
 
 <section class="content mt-3">
+    
     <div class="container-fluid">
         <?php if (session()->getFlashdata('success')) : ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -53,10 +54,8 @@
                                         </td>
 
                                         <td>
-                                            <form action="/admin/mahasiswa/edit" method="POST">
-                                                <input type="hidden" name="npm" value="<?= $student['NPM'] ?>">
-                                                <button type="submit" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-                                            </form>
+                                        <a class="btn btn-warning" href="/admin/mahasiswa/edit/<?= $student['NPM'] ?>"><i class="bi bi-pencil-square"></i></a>
+                                       
                                         </td>
                                         <td>
                                             <form class="form-delete" action="/admin/mahasiswa/delete" method="POST">

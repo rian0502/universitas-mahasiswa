@@ -1,10 +1,17 @@
 <?= $this->extend('templates/templateAdmin'); ?>
 <?= $this->section('content'); ?>
-<a href="<?= base_url(); ?>/admin/mahasiswa" class="btn btn-danger mt-3 mb-3">Back</a>
-<form action="/admin/mahasiswa/update" method="POST">
+
+
+
+<form action="<?= base_url();?>/admin/mahasiswa/update" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="nama" class="form-label">Nama</label>
-        <input type="text" class="form-control" id="nama" value="<?= $student['name']; ?>" name="name">
+        <input type="text" class="form-control <?= ($validation->hasError('name')) ? 'is-invalid' : '' ;?>" id="nama" value="<?= $student['name']; ?>" name="name">
+        
+    </div>
+    <div class="mb-3">
+        <label for="nama" class="form-label">E-mail</label>
+        <input type="text" class="form-control" id="nama" value="<?= $student['email']; ?>" name="email">
     </div>
     <div class="mb-3">
         <label for="npm" class="form-label">NPM</label>
@@ -27,9 +34,26 @@
             <option <?= ($student['jalur_masuk'] == 'Mandiri') ? 'selected' : '' ?>>MANDIRI</option>
         </select>
     </div>
+    <div class="form-group mb-3">
+        <label for="image" class="form-label">Pas Foto</label>
+        <input class="form-control" type="file" id="image" name="pas_foto" onchange="previewImage()">
+
+        <?php if ($student['pas_foto'] != null) : ?>
+            <img class="img-preview img-fluid mt-2 col-sm-2" src="/uploads/<?= $student['pas_foto'] ?>">
+        <?php else : ?>
+            <img class="img-preview img-fluid mt-2 col-sm-2">
+        <?php endif; ?>
+    </div>
     <button type="submit" class="btn btn-primary">Simpan</button>
 </form>
 
-
+<script>
+    function previewImage() {
+        const image = document.querySelector('#image');
+        const imgPreview = document.querySelector('.img-preview');
+        const blob = URL.createObjectURL(image.files[0]);
+        imgPreview.src = blob;
+    }
+</script>
 
 <?= $this->endSection(); ?>

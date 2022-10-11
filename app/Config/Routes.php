@@ -46,7 +46,9 @@ $routes->get('/students','StudentsController::index');
 
 $routes->post('/admin/mahasiswa/delete','AdminController::delete');
 $routes->post('/admin/mahasiswa/view','AdminController::view');
-$routes->post('/admin/mahasiswa/edit','AdminController::edit');
+$routes->get('/admin/mahasiswa/edit/(:num)','AdminController::edit/$1');
+
+$routes->post('/admin/mahasiswa/update','AdminController::update');
 
 
 

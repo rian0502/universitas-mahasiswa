@@ -49,9 +49,25 @@
           </ul>
 
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a href="<?= base_url() ?>" class="nav-link">Login <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
-            </li>
+            <?php if (logged_in()) : ?>
+              <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person-circle"></i><?= "  " . user()->username ?>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li><a class="dropdown-item" href="<?= base_url(); ?>/admin"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+                  <li>
+                    <a class="dropdown-item" href="<?= base_url(); ?>/logout" class="nav-link"><i class="bi bi-box-arrow-in-left"></i> Logout</a>
+                  </li>
+
+                </ul>
+              </div>
+            <?php else : ?>
+              <li class="nav-item">
+                <a href="<?= base_url(); ?>/login" class="nav-link">Log in <i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+              </li>
+            <?php endif; ?>
           </ul>
 
         </div>
@@ -59,6 +75,7 @@
       </div>
     </nav>
     <!-- /.navbar -->
+
 
     <div class="container-fluid mt-3">
       <?= $this->renderSection('content') ?>
@@ -83,11 +100,6 @@
   <script src="/adminLTE/dist/js/demo.js"></script>
 
   <script>
-    $(function() {
-      // Summernote
-      $('#deskripsi').summernote();
-
-    });
   </script>
 </body>
 

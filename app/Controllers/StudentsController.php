@@ -108,13 +108,13 @@ class StudentsController extends BaseController
         ]);
         if ($validated) {
             $foto = $this->request->getFile('foto');
-            $filename = $foto->getRandomName();
-            $data['pas_foto'] = $filename;
-            $foto->move("uploads/pas_foto/".$filename);
+            $data['pas_foto'] = $foto->getName();
+            $foto->move("uploads/");
             $students->insert($data);
             return redirect()->to('/admin/mahasiswa')->with('success', 'Data berhasil ditambahkan');
         } else {
             return redirect()->to('/pendaftaran')->withInput()->with('errors', $this->validator->getErrors());
         }
     }
+
 }

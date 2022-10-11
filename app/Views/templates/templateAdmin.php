@@ -56,7 +56,7 @@
                         <img src="/adminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="" class="d-block"><?= user()->username ?></a>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                     </ul>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" data-accordion="false">
                         <li class="nav-item menu-open">
-                            <a href="/logout" class="nav-link">
+                            <a href="<?= base_url() ?>/logout" class="nav-link">
                                 <i class="nav-icon bi bi-box-arrow-right"></i>
                                 <p>
                                     LogOut

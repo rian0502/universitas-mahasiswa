@@ -33,11 +33,21 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="alamat" class="form-label">Pas Foto</label>
-                <input class="form-control" type="file" name="foto" id="formFile">
+                <label for="image" class="form-label">Pas Foto</label>
+                <input class="form-control" type="file" name="foto" id="image" onchange="previewImage()">
+                <img class="img-preview img-fluid mt-2 col-sm-2">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>
+<script>
+    function previewImage() {
+        const image = document.querySelector('#image');
+        const imgPreview = document.querySelector('.img-preview');
+        const blob = URL.createObjectURL(image.files[0]);
+        imgPreview.src = blob;
+
+    }
+</script>
 <?= $this->endSection(); ?>
