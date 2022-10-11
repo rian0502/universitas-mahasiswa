@@ -50,8 +50,10 @@ class AdminController extends BaseController
         ];
         return view('onlyAdmin/student', $data);
     }
-    public function edit($npm)
-    {
+
+
+    public function edit($npm){
+       
         $students = new Students();
 
         $data = [
@@ -60,11 +62,9 @@ class AdminController extends BaseController
         ];
         return view('onlyAdmin/edit', $data);
     }
-
     public function update()
     {
         $students = new Students();
-
         $data = [
             'name' => $this->request->getVar('name'),
             'email' => $this->request->getVar('email'),
@@ -72,11 +72,17 @@ class AdminController extends BaseController
             'alamat' => $this->request->getVar('alamat'),
             'jurusan' => $this->request->getVar('jurusan'),
             'jalur_masuk' => $this->request->getVar('jalur_masuk'),
-            'pas_foto' => $this->request->getFile('pas_foto'),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
-
-
-        
+        if($this->request->getFile('pas_foto')->getName() != ''){
+            $data['pas_foto'] = $this->request->getFile('pas_foto')->getName();
+            $file = $this->request->getFile('pas_foto');
+            $file->move('uploads/');
+            $students->where('NPM', $this->request->getVar('npm'))->set($data)->update();
+        }else{
+            $students->where('NPM', $this->request->getVar('npm'))->set($data)->update();
+        }
+        return redirect()->to('/admin/mahasiswa')->with('success', 'Data berhasil diubah');
+       
     }
 }

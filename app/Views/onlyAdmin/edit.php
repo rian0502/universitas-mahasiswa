@@ -3,10 +3,10 @@
 
 
 
-<form action="<?= base_url();?>/admin/mahasiswa/update" method="POST" enctype="multipart/form-data">
+<form action="/admin/mahasiswa/update" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="nama" class="form-label">Nama</label>
-        <input type="text" class="form-control <?= ($validation->hasError('name')) ? 'is-invalid' : '' ;?>" id="nama" value="<?= $student['name']; ?>" name="name">
+        <input type="text" class="form-control" id="nama" value="<?= $student['name']; ?>" name="name">
         
     </div>
     <div class="mb-3">
