@@ -18,10 +18,5 @@ class Home extends BaseController
         ];
         return view('about',$data);
     }
-    public function pendaftaran(){
-        $data = [
-            "title" => "Pendaftaran"
-        ];
-        return view('pendaftaran',$data);
-    }
+
 }

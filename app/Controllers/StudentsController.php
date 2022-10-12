@@ -39,6 +39,13 @@ class StudentsController extends BaseController
         }
     }
 
+    public function pendaftaran(){
+        $data = [
+            "title" => "Pendaftaran"
+        ];
+        return view('pendaftaran',$data);
+    }
+
     public function store()
     {
         $students = new Students();
@@ -56,8 +63,6 @@ class StudentsController extends BaseController
             'updated_at' => date('Y-m-d H:i:s'),
         ];
    
-
-
         $validated = $this->validate([
             'name' => [
                 'rules' => 'required|min_length[4]',
@@ -111,7 +116,7 @@ class StudentsController extends BaseController
             $data['pas_foto'] = $foto->getName();
             $foto->move("uploads/");
             $students->insert($data);
-            return redirect()->to('/admin/mahasiswa')->with('success', 'Data berhasil ditambahkan');
+            return redirect()->to('/students');
         } else {
             return redirect()->to('/pendaftaran')->withInput()->with('errors', $this->validator->getErrors());
         }
