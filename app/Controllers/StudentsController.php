@@ -61,6 +61,7 @@ class StudentsController extends BaseController
             'jurusan' => $this->request->getVar('jurusan'),
             'jalur_masuk' => $this->request->getVar('jalur_masuk'),
             'pas_foto' => $this->request->getFile('foto'),
+            'id_dosen' => $faker->numberBetween(1,15),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ];

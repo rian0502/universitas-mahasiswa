@@ -22,6 +22,7 @@ class Students extends Model
         'jurusan',
         'pas_foto',
         'jalur_masuk',
+        'id_dosen',
         'created_at',
         'updated_at',
     ];
