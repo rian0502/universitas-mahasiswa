@@ -31,6 +31,7 @@ class AdminController extends BaseController
         ];
         return view('onlyAdmin/students', $data);
     }
+    
     public function delete()
     {
         $students = new Students();
@@ -59,9 +60,11 @@ class AdminController extends BaseController
         $data = [
             'sidebar' => 'Students',
             'student' => $students->where('npm', $npm)->first(),
+            'validation' => \Config\Services::validation(),
         ];
         return view('onlyAdmin/edit', $data);
     }
+
     public function update()
     {
         $students = new Students();

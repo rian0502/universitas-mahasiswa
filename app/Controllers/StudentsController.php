@@ -40,8 +40,10 @@ class StudentsController extends BaseController
     }
 
     public function pendaftaran(){
+        session();
         $data = [
-            "title" => "Pendaftaran"
+            "title" => "Pendaftaran",
+            'validation' => \Config\Services::validation(),
         ];
         return view('pendaftaran',$data);
     }
@@ -104,10 +106,10 @@ class StudentsController extends BaseController
             'foto' => [
                 'rules' => 'uploaded[foto]|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
                 'errors' => [
-                    'uploaded' => 'Foto harus diisi',
+                    'uploaded' => 'Foto harus di Upload',
                     'max_size' => 'Ukuran foto terlalu besar',
-                    'is_image' => 'Yang anda pilih bukan gambar',
-                    'mime_in' => 'Yang anda pilih bukan gambar'
+                    'is_image' => 'Yang anda pilih bukan Foto',
+                    'mime_in' => 'Yang anda pilih bukan Foto'
                 ]
             ]
         ]);
@@ -118,7 +120,8 @@ class StudentsController extends BaseController
             $students->insert($data);
             return redirect()->to('/students');
         } else {
-            return redirect()->to('/pendaftaran')->withInput()->with('errors', $this->validator->getErrors());
+            $validation = \Config\Services::validation();
+            return redirect()->to(base_url('/pendaftaran'))->withInput();
         }
     }
 

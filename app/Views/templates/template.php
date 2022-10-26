@@ -3,15 +3,23 @@
 
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?= $title ?></title>
 
-  <link rel="stylesheet" href="/adminLTE/plugins/summernote/summernote-bs4.min.css">
+  <title><?= $title ?></title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/executive/public/assets/assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/executive/public/assets/assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/executive/public/assets/assets/img/favicons/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/executive/public/assets/assets/img/favicons/favicon.ico">
+  <link rel="manifest" href="/assets/executive/public/assets/assets/img/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="/assets/executive/public/assets/assets/img/favicons/mstile-150x150.png">
+  <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="/adminLTE/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="/adminLTE/dist/css/adminlte.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link href="/assets/executive/public/assets/css/theme.css" rel="stylesheet" />
 </head>
 
 <body class="hold-transition layout-top-nav">
@@ -82,11 +90,7 @@
     </div>
 
   </div>
-  <!-- ./wrapper -->
 
-  <!-- REQUIRED SCRIPTS -->
-
-  <!-- jQuery -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
   <script src="/adminLTE/plugins/jquery/jquery.min.js"></script>
@@ -94,8 +98,6 @@
   <script src="/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="/adminLTE/dist/js/adminlte.min.js"></script>
-
-  <script src="/adminLTE/plugins/summernote/summernote-bs4.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="/adminLTE/dist/js/demo.js"></script>
 
