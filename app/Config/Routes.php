@@ -37,20 +37,19 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/about','Home::about');
-$routes->get('/admin','AdminController::index');
 
 $routes->get('/pendaftaran','StudentsController::pendaftaran');
 
-$routes->get('/admin/mahasiswa','AdminController::students');
 $routes->post('/pendafaran/create','StudentsController::store');
 $routes->get('/students','StudentsController::index');
 
 
-$routes->post('/admin/mahasiswa/delete','AdminController::delete');
-$routes->post('/admin/mahasiswa/view','AdminController::view');
-$routes->get('/admin/mahasiswa/edit/(:num)','AdminController::edit/$1');
-
-$routes->post('/admin/mahasiswa/update','AdminController::update');
+$routes->get('/admin','AdminController::index',['filter' => 'role:admin']);
+$routes->get('/admin/mahasiswa','AdminController::students',['filter' => 'role:admin']);
+$routes->post('/admin/mahasiswa/delete','AdminController::delete', ['filter' => 'role:admin']);
+$routes->post('/admin/mahasiswa/view','AdminController::view', ['filter' => 'role:admin']);
+$routes->get('/admin/mahasiswa/edit/(:num)','AdminController::edit/$1', ['filter' => 'role:admin']);
+$routes->post('/admin/mahasiswa/update','AdminController::update', ['filter' => 'role:admin']);
 
 
 
