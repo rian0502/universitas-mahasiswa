@@ -19,6 +19,9 @@
         <li class="list-group-item">
             <b>Alamat</b> <a class="float-right"><?= $student['alamat'] ?></a>
         </li>
+        <li class="list-group-item">
+            <b>Dosen Pembimbing</b> <a class="float-right"><?= $student['nama'] ?></a>
+        </li>
     </ul>
     <a href="#" class="btn btn-primary btn-block"><b>Edit</b></a>
     <a href="<?= base_url(); ?>/admin/mahasiswa" class="btn btn-danger btn-block">Back</a>

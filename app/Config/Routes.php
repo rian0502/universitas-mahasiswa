@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Models\Students;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -35,7 +37,10 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+//$routes->get('/', 'Home::index');
+$routes->get('/', function () {
+   dd((new Students())->getStudents(3));
+});
 $routes->get('/about','Home::about');
 
 $routes->get('/pendaftaran','StudentsController::pendaftaran');

@@ -50,4 +50,11 @@ class Students extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+
+    public function getStudents($npm)
+    {
+        return $this->join('dosen_pembimbing', 'students.id_dosen = dosen_pembimbing.id_dosen')->where('students.NPM', $npm)->first();
+    }
 }

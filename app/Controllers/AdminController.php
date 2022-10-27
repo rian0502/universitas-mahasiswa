@@ -47,7 +47,7 @@ class AdminController extends BaseController
         $students = new Students();
         $data = [
             'sidebar' => 'Students',
-            'student' => $students->where('npm', $this->request->getPost('npm'))->first(),
+            'student' => $students->getStudents($this->request->getPost('npm')),
         ];
         return view('onlyAdmin/student', $data);
     }
