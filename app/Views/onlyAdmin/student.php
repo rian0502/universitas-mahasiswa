@@ -23,7 +23,7 @@
             <b>Dosen Pembimbing</b> <a class="float-right"><?= $student['nama'] ?></a>
         </li>
     </ul>
-    <a href="#" class="btn btn-primary btn-block"><b>Edit</b></a>
+    <a href="/admin/mahasiswa/edit/<?= $student['NPM']?>" class="btn btn-primary btn-block"><b>Edit</b></a>
     <a href="<?= base_url(); ?>/admin/mahasiswa" class="btn btn-danger btn-block">Back</a>
 </div>
 <?= $this->endSection(); ?>
