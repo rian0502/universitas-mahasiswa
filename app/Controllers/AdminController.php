@@ -35,11 +35,9 @@ class AdminController extends BaseController
     public function delete()
     {
         $students = new Students();
-        if ($students->where('npm', $this->request->getPost('npm'))->delete()) {
-            return redirect()->to('/admin/mahasiswa')->with('success', 'Data berhasil dihapus');
-        } else {
-            return redirect()->to('/admin/mahasiswa')->with('error', 'Data gagal dihapus');
-        }
+        $students->where('NPM', $this->request->getVar('npm'))->delete();
+        session()->setFlashdata('success', 'Data berhasil dihapus');
+        return redirect()->to('/admin/mahasiswa');
     }
 
     public function view()

@@ -145,28 +145,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/sweetAlert/dist/sweetalert2.all.min.js"></script>
     <script>
+    $(document).ready(function () {
         $('.btn-delete').click(function(e) {
-            e.preventDefault();
-            Swal.fire({
-                title: 'Yakin menghapus data ?',
-                text: 'Data yang di hapus tidak akan bisa di kembalikan !',
-                confirmButtonText: 'Hapus',
-                icon: 'warning',
-                showCancelButton: true,
-                denyButtonText: 'Tidak',
-                customClass: {
-                    actions: 'my-actions',
-                    confirmButton: 'order-2',
-                    denyButton: 'order-3',
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $('.form-delete').submit();
-                }
-            })
+        e.preventDefault();
+        var id = $(this).parents("tr").attr("id");
+        Swal.fire({
+            title: 'Yakin menghapus data ?',
+            text: 'Data yang di hapus tidak akan bisa di kembalikan !',
+            confirmButtonText: 'Hapus',
+            icon: 'warning',
+            showCancelButton: true,
+            denyButtonText: 'Tidak',
+            customClass: {
+                actions: 'my-actions',
+                confirmButton: 'order-2',
+                denyButton: 'order-3',
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(".form-delete"+id).submit();
+            }
+        })
 
-        });
-    </script>
+    });
+    });
+</script>
 </body>
 
 

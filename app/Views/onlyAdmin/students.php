@@ -2,7 +2,7 @@
 <?= $this->section('content'); ?>
 
 <section class="content mt-3">
-    
+
     <div class="container-fluid">
         <?php if (session()->getFlashdata('success')) : ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -39,7 +39,7 @@
 
                                 <?php $no = 1;
                                 foreach ($students as $student) : ?>
-                                    <tr>
+                                    <tr id="<?= $no ?>">
                                         <td><?= $no; ?></td>
                                         <td><?= $student['NPM']; ?></td>
                                         <td><?= $student['name']; ?></td>
@@ -49,18 +49,20 @@
                                         <td>
                                             <form action="/admin/mahasiswa/view" method="POST">
                                                 <input type="hidden" name="npm" value="<?= $student['NPM'] ?>">
+                                          
                                                 <button type="submit" class="btn btn-primary"><i class="bi bi-eye"></i></button>
                                             </form>
                                         </td>
 
                                         <td>
-                                        <a class="btn btn-warning" href="/admin/mahasiswa/edit/<?= $student['NPM'] ?>"><i class="bi bi-pencil-square"></i></a>
-                                       
+                                            <a class="btn btn-warning" href="/admin/mahasiswa/edit/<?= $student['NPM'] ?>"><i class="bi bi-pencil-square"></i></a>
+
                                         </td>
                                         <td>
-                                            <form class="form-delete" action="/admin/mahasiswa/delete" method="POST">
+                                            <form class="form-delete<?= $no ?>" action="/admin/mahasiswa/delete" method="POST">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="npm" value="<?= $student['NPM'] ?>">
+                                                <input type="hidden" class="hidden-valu" value="<?= $no ?>">
                                                 <button id="delete" type="submit" class="btn-delete btn btn-danger"><i class="bi bi-trash"></i></button>
                                             </form>
                                         </td>
