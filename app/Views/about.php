@@ -83,7 +83,7 @@
             <div class="col-md-7 col-lg-6 offset-xl-1">
                 <h1 class="fw-light text-center text-md-start fs-lg-3 fs-xl-4">Ready to chase your dreams?</h1>
             </div>
-            <div class="col-md-4 text-center text-lg-end"> <a class="btn btn-lg btn-primary hover-top" href="/pendaftaran">Login
+            <div class="col-md-4 text-center text-lg-end"> <a class="btn btn-lg btn-primary hover-top" href="/pendaftaran">Daftar
                     <svg class="bi bi-arrow-right-short ms-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"> </path>
                     </svg></a></div>
